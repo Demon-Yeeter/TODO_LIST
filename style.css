@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    color: #013476;
+    background-image: url('backround.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.table {
+    display:flex;
+    flex-direction: column;
+    color:yellow;
+}
+.row {
+    display:flex;
+    color:rgb(0, 0, 0);
+}
+
+.head {
+    background-color: lightgray;
+}
+
+.cell {
+    flex-grow: 1;
+    padding: 1rem;
+}
+.logo {
+    width: 100px;
+    height: auto;
+}
+h1 {
+    text-align: center;
+}
+.input-container {
+    text-align: center;
+    margin-bottom: 10px;
+    outline-color: #013476;
+}
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    outline-color: #013476;
+    background: transparent;
+    border: 1px solid #013476;
+}
+input, select, textarea {
+    color: #013476;
+}
+input::placeholder {
+    color: #013476; 
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background: #013476;
+    border: 2px solid #013476;
+}
+@media (max-width: 768px) {
+    button{
+        padding: 5px 10px;
+    }
+}
+button:hover {
+    color: black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid #013476;
+    background-color: white; /* Tabellenhintergrund weiß */
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white; /* Zellenhintergrund weiß */
+}
+.actions {
+    text-align: center;
+}
+.actions button {
+    margin: 0 5px;
+}
