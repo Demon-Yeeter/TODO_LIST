@@ -1,5 +1,4 @@
 // Generiert eine eindeutige ID für jede Aufgabe
-//flexbox test
 const getId = () => {
     let id;
     do {
@@ -198,5 +197,23 @@ const onDrop = (event) => {
     // Logik für das Verschieben oder Sortieren von Aufgaben bei Drag-and-Drop ergänzen.
 };
 
-document.getElementById('taskForm').addEventListener('submit', addTask);
+// Dark Mode Funktionalität
+const toggleDarkMode = () => {
+    const body = document.body;
+    const button = document.getElementById('darkModeToggle');
+
+    body.classList.toggle('dark-mode');
+
+    // Ändere das Icon des Buttons
+    if (body.classList.contains('dark-mode')) {
+        button.innerHTML = '🌞'; // Sonne für Light Mode
+    } else {
+        button.innerHTML = '🌙'; // Mond für Dark Mode
+    }
+};
+
+// Event Listener für den Dark Mode Button
+document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+
+// Initiales Rendern der Aufgaben
 renderTasks();

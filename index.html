@@ -9,6 +9,7 @@
 <body>
     <header>
         <img src="logo.jpg" alt="Logo" class="logo">
+        <button id="darkModeToggle">🌙</button> <!-- Dark Mode Button -->
     </header>
     <div id="debug"></div>
     <h1>To-Do Liste</h1>
@@ -24,20 +25,20 @@
     </form>
     <input type="text" id="searchInput" placeholder="Aufgaben durchsuchen">
     <div class="table" id="taskTable">
-            <div class="row head">
-                <div class="cell">Aufgabe</div>
-                <div class="cell">Time</div>
-                <div class="cell">Aktionen</div>
-            </div>
+        <div class="row head">
+            <div class="cell">Aufgabe</div>
+            <div class="cell">Time</div>
+            <div class="cell">Aktionen</div>
+        </div>
         <div id="tasks-body"></div>
     </div>
     <h2>Erledigte Aufgaben</h2>
     <div class="table" id="completedTable">
-            <div class="row">
-                <div class="cell">Aufgabe</div>
-                <div class="cell">Time</div>
-                <div class="cell">Aktionen</div>
-            </div>
+        <div class="row">
+            <div class="cell">Aufgabe</div>
+            <div class="cell">Time</div>
+            <div class="cell">Aktionen</div>
+        </div>
         <div id="completed-body"></div>
     </div>
     <script src="test.js"></script>

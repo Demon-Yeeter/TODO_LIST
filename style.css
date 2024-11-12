@@ -7,20 +7,23 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 10px;
 }
+
 .table {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    color:yellow;
+    color: yellow;
 }
+
 .row {
-    display:flex;
-    color:rgb(0, 0, 0);
+    display: flex;
+    color: rgb(0, 0, 0);
 }
 
 .head {
@@ -29,65 +32,46 @@ header {
 
 .cell {
     flex-grow: 1;
+    flex-basis: 0;
     padding: 1rem;
 }
+
 .logo {
     width: 100px;
     height: auto;
 }
+
 h1 {
     text-align: center;
 }
+
 .input-container {
     text-align: center;
     margin-bottom: 10px;
     outline-color: #013476;
 }
+
 input[type="text"] {
     width: 300px;
     padding: 10px;
     font-size: 16px;
     outline-color: #013476;
-    background: transparent;
-    border: 1px solid #013476;
 }
-input, select, textarea {
-    color: #013476;
+
+body.dark-mode {
+    background-color: #121212; /* Dunkler Hintergrund */
+    color: #ffffff; /* Helle Schriftfarbe */
+    background-image: none; /* Hintergrundbild im Dark Mode entfernen */
 }
-input::placeholder {
-    color: #013476; 
+
+body.dark-mode input, 
+body.dark-mode select, 
+body.dark-mode textarea {
+    background-color: #333333; /* Dunkler Hintergrund für Eingabefelder */
+    color: #ffffff; /* Helle Schriftfarbe für Eingabefelder */
+    border: 1px solid #ffffff; /* Helle Rahmenfarbe */
 }
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    color: white;
-    background: #013476;
-    border: 2px solid #013476;
-}
-@media (max-width: 768px) {
-    button{
-        padding: 5px 10px;
-    }
-}
-button:hover {
-    color: black;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 2px solid #013476;
-    background-color: white; /* Tabellenhintergrund weiß */
-}
-th, td {
-    border: 1px solid black;
-    padding: 10px;
-    background-color: white; /* Zellenhintergrund weiß */
-}
-.actions {
-    text-align: center;
-}
-.actions button {
-    margin: 0 5px;
+
+body.dark-mode .cell {
+    background-color: #1e1e1e; /* Dunkler Hintergrund für Zellen */
 }
