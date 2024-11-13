@@ -14,7 +14,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 10px;
     color: #013476;
-    background-image: url('backround_white.jpg');
+    background-image: url('../assets/backround/backround_white.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -72,7 +72,7 @@ input[type="text"] {
 body.dark-mode {
     background-color: var(--background-color); /* Dunkler Hintergrund */
     color: var(--color); /* Helle Schriftfarbe */
-    background-image: url('backround_black.jpg')
+    background-image: url('assets/backround/backround_black.jpg')
 }
 
 body.dark-mode input, 

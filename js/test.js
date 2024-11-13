@@ -213,6 +213,8 @@ const toggleDarkMode = () => {
 // Event Listener für den Dark Mode Button
 document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
+
 // Initiales Rendern der Aufgaben
 renderTasks();
 addEventListeners();
+document.getElementById('taskForm').addEventListener('submit', addTask);
