@@ -1,3 +1,15 @@
+:root {
+    --background-color: #fff;
+    --color: #000
+}
+
+
+.dark-mode {
+    --background-color: black;
+    --color: #fff;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 10px;
@@ -58,25 +70,24 @@ input[type="text"] {
 }
 
 body.dark-mode {
-    background-color: #121212; /* Dunkler Hintergrund */
-    color: #ffffff; /* Helle Schriftfarbe */
-    background-image: none;/* Hintergrundbild im Dark Mode entfernen */
-    background-image: url('backround_black.jpg'); 
+    background-color: var(--background-color); /* Dunkler Hintergrund */
+    color: var(--color); /* Helle Schriftfarbe */
+    background-image: url('backround_black.jpg')
 }
 
 body.dark-mode input, 
 body.dark-mode select, 
 body.dark-mode textarea {
     background-color: #333333; /* Dunkler Hintergrund für Eingabefelder */
-    color: #ffffff; /* Helle Schriftfarbe für Eingabefelder */
+    color: var(--color); /* Helle Schriftfarbe für Eingabefelder */
     border: 1px solid #ffffff; /* Helle Rahmenfarbe */
 }
 
 body.dark-mode .cell {
-    background-color: #1e1e1e; /* Dunkler Hintergrund für Zellen */
-    color:#ffffff
+    background-color: var(--background-color); /* Dunkler Hintergrund für Zellen */
+    color: var(--color);
 }
 
 body.dark-mode .row {
-    color:#ffffff
+    color: var(--color);
 }

@@ -54,8 +54,6 @@ const renderTasks = (query = "") => {
             </div>
         </div>`).join('');
     document.getElementById('completed-body').innerHTML = completedBody;
-
-    addEventListeners();
 };
 
 // Fügt eine neue Aufgabe hinzu
@@ -217,3 +215,4 @@ document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMo
 
 // Initiales Rendern der Aufgaben
 renderTasks();
+addEventListeners();
