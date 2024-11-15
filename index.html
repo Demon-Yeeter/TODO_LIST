@@ -21,26 +21,31 @@
             required
             name="task"
         >
-        <button type="submit">Add</button>
+        <input type="datetime-local" id="dateInput" required>
+        <button type="submit">Hinzufügen</button>
     </form>
     <input type="text" id="searchInput" placeholder="Aufgaben durchsuchen">
+    <h2>To Do´s</h2>
     <div class="table" id="taskTable">
         <div class="row head">
             <div class="cell">Aufgabe</div>
-            <div class="cell">Time</div>
+            <div class="cell">Erstellt</div>
+            <div class="cell">Fälligkeitsdatum</div>
+            <div class="cell">Countdown</div>
             <div class="cell">Aktionen</div>
         </div>
         <div id="tasks-body"></div>
     </div>
-    <h2>Erledigte Aufgaben</h2>
+    <h3>Erledigte Aufgaben</h3>
     <div class="table" id="completedTable">
-        <div class="row">
+        <div class="row head">
             <div class="cell">Aufgabe</div>
-            <div class="cell">Time</div>
+            <div class="cell">Erstellt</div>
             <div class="cell">Aktionen</div>
         </div>
         <div id="completed-body"></div>
     </div>
-    <script src="js/test.js"></script>
+    <script type="module" src="js/main.js"></script>
+   <!--<script src="js/countdown.js"></script>-->
 </body>
 </html>

@@ -34,8 +34,10 @@ const renderTasks = (query = "") => {
     // Offene Aufgaben rendern
     const tasksBody = filteredTasks.map(currentTask => `
         <div class="row" data-id="${currentTask.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)" ondrop="onDrop(event)">
-            <div class="cell" class="task-cell">${currentTask.task}</div>
+            <div class="cell task-cell">${currentTask.task}</div>
             <div class="cell">${currentTask.createdAt}</div>
+            <div class="cell">${currentTask.deadline}</div>
+            <div class="cell countdown">${currentTask.countdown}</div>
             <div class="cell action">
                 <button class="check" data-id="${currentTask.id}">✔</button>
                 <button class="edit" data-id="${currentTask.id}">✎</button>
@@ -60,9 +62,10 @@ const renderTasks = (query = "") => {
 const addTask = (event) => {
     event.preventDefault();
     const taskInput = document.getElementById("taskInput");
+    const dateInput = document.getElementById("dateInput");
 
-    if (taskInput.value.trim() === "") {
-        taskInput.setCustomValidity("Bitte etwas eintragen!");
+    if (taskInput.value.trim() === "" || dateInput.value.trim() === "") {
+        taskInput.setCustomValidity("Bitte Aufgabe und Datum eintragen!");
         taskInput.reportValidity();
         return;
     } else {
@@ -72,13 +75,39 @@ const addTask = (event) => {
     const newTask = {
         id: getId(),
         task: taskInput.value,
-        createdAt: new Date().toLocaleString()
+        createdAt: new Date().toLocaleString(),
+        deadline: new Date(dateInput.value).toLocaleString(),
+        countdown: "" // Platzhalter für den Countdown
     };
 
     tasks.open.push(newTask);
     saveTasks(tasks);
     renderTasks();
+    startCountdown(newTask); // Countdown starten
     taskInput.value = "";
+    dateInput.value = "";
+};
+
+// Countdown-Funktion
+const startCountdown = (task) => {
+    const countdownCell = document.querySelector(`.row[data-id="${task.id}"] .countdown`);
+    const countDownDate = new Date(task.deadline).getTime(); // Fälligkeitsdatum
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdown);
+            countdownCell.textContent = "Zeit abgelaufen";
+        } else {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownCell.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+    }, 1000);
 };
 
 // Löscht eine Aufgabe
@@ -105,7 +134,7 @@ const moveToCompleted = (id) => {
 
 // Bearbeitet eine Aufgabe
 const editTask = (id) => {
-    const taskRow = document.querySelector(`tr[data-id="${id}"]`);
+    const taskRow = document.querySelector(`.row[data-id="${id}"]`);
     const taskCell = taskRow.querySelector(".task-cell");
     const originalTask = taskCell.textContent;
     taskCell.innerHTML = `<input type="text" value="${originalTask}" />`;
@@ -212,7 +241,6 @@ const toggleDarkMode = () => {
 
 // Event Listener für den Dark Mode Button
 document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
-
 
 // Initiales Rendern der Aufgaben
 renderTasks();

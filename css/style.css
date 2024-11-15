@@ -5,7 +5,7 @@
 
 
 .dark-mode {
-    --background-color: black;
+    --background-color: transparent;
     --color: #fff;
 }
 
@@ -78,7 +78,7 @@ body.dark-mode {
 body.dark-mode input, 
 body.dark-mode select, 
 body.dark-mode textarea {
-    background-color: #333333; /* Dunkler Hintergrund für Eingabefelder */
+    background-color: black; /* Dunkler Hintergrund für Eingabefelder */
     color: var(--color); /* Helle Schriftfarbe für Eingabefelder */
     border: 1px solid #ffffff; /* Helle Rahmenfarbe */
 }
