@@ -4,12 +4,12 @@
   "description": "demo",
   "main": "index.js",
   "scripts": {
-    "dev": "http-server .",
+    "dev": "browser-sync start --server --files 'css/*.css, *.html, js/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thieme",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "browser-sync": "^3.0.3"
   }
 }
