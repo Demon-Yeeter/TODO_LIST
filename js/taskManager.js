@@ -24,7 +24,7 @@ export const renderTasks = async (query = "") => {
 
     // Offene Aufgaben rendern
     const tasksBody = filteredTasks.map(currentTask => `
-        <div class="row" data-id="${currentTask.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)" ondrop="onDrop(event)">
+        <div class="row item" data-id="${currentTask.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)" ondrop="onDrop(event)">
             <div class="cell task-cell">${currentTask.task}</div>
             <div class="cell">${currentTask.createdAt}</div>
             <div class="cell">${currentTask.deadline}</div>
